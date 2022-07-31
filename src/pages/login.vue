@@ -1,14 +1,14 @@
 <template>
   <section>
     <h1>ログイン</h1>
-    <form>
+    <form @submit.prevent="login">
       <div>
-        <label for="email">email</label>
-        <input type="text" id="email" v-model="email" />
+        <label for="basic_id">id</label>
+        <input type="text" v-model="name" />
       </div>
       <div>
-        <label for="password">password</label>
-        <input type="password" id="password" v-model="password" />
+        <label for="basic_password">password</label>
+        <input type="password" v-model="password" />
       </div>
       <button type="submit">login</button>
     </form>
@@ -16,11 +16,21 @@
 </template>
 
 <script>
+import $cookies from "cookie-universal-nuxt";
 export default {
-  auth: false,
   data: () => ({
-    email: '',
+    name: '',
     password: '',
-  })
+  }),
+  methods: {
+    login() {
+      if (this.name === this.$config.BASIC_NAME && this.password === this.$config.BASIC_PATH) {
+        this.$cookies.set("authenticated", true)
+        return this.$router.push('/')
+      } else {
+        this.$cookies.set("authenticated", false)
+      }
+    }
+  }
 }
 </script>
