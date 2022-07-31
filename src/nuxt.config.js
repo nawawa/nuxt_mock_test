@@ -25,12 +25,17 @@ export default {
   css: [
   ],
 
+  publicRuntimeConfig: {
+    BASIC_NAME: process.env.BASIC_NAME,
+    BASIC_PATH: process.env.BASIC_PATH,
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
 
   router: {
-    middleware: ['auth_check']
+    // middleware: ['auth_check']
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,6 +49,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'cookie-universal-nuxt'
   ],
 
   basic: {
