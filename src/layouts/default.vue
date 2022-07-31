@@ -56,6 +56,10 @@
       >
         <v-icon>mdi-menu</v-icon>
       </v-btn>
+      <v-spacer />
+      <v-btn @click="logout">
+        ログアウト
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -112,6 +116,12 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+  methods: {
+    logout() {
+      this.$cookiz.remove('authenticated')
+      return this.$router.push('/login')
     }
   }
 }

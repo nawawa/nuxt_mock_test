@@ -16,8 +16,7 @@
 </template>
 
 <script>
-import $cookies from "cookie-universal-nuxt";
-export default {
+export default {  
   data: () => ({
     name: '',
     password: '',
@@ -25,10 +24,10 @@ export default {
   methods: {
     login() {
       if (this.name === this.$config.BASIC_NAME && this.password === this.$config.BASIC_PATH) {
-        this.$cookies.set("authenticated", true)
+        this.$cookiz.set("authenticated", true)
         return this.$router.push('/')
       } else {
-        this.$cookies.set("authenticated", false)
+        this.$cookiz.set("authenticated", false)
       }
     }
   }

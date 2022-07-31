@@ -1,11 +1,10 @@
-export default ({ store, redirect, route }) => {
+export default function ({redirect, route, app}) {
 
-  if (route.fullPath === `/login`) {
-    return  
-  } 
+  const authenticated = app.$cookiz.get("authenticated")
+  const isLoginPage = route.path === '/login'
 
-  if(!store.state.auth.isAuthed) { 
-    return redirect(`/login`)
+  if (!authenticated && !isLoginPage) {
+    return redirect('/login')
   }
 
 }

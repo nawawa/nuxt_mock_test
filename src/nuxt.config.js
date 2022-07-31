@@ -35,7 +35,7 @@ export default {
   ],
 
   router: {
-    // middleware: ['auth_check']
+    middleware: ['auth_check']
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -49,7 +49,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    'cookie-universal-nuxt'
+    ['cookie-universal-nuxt', { alias: 'cookiz' }]
   ],
 
   basic: {
